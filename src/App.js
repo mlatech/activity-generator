@@ -1,8 +1,8 @@
 import React from "react"
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './Home'
-import Search from './Search'
-import Saved from './Saved'
+import Home from './components/Home'
+import Search from './components/Search'
+import Saved from './components/Saved'
 
 
 export default function App(){
