@@ -5,15 +5,17 @@ import Search from './components/Search'
 import Saved from './components/Saved'
 
 
+
 export default function App(){
   return(
+ 
     <Router>
       <div>
-        <nav>
-          <Link to ="/" style={{padding: 5}}>Home</Link>
-          <Link to ="/search" style={{padding: 5}}>Search</Link>
-          <Link to ="/saved" style={{padding: 5}}>My Activities</Link>
-        </nav>
+        <div>
+          <Link to ="/" style={{padding: 50}}>Home</Link>
+          <Link to ="/search" style={{padding: 50}}>Search</Link>
+          <Link to ="/saved" style={{padding: 50}}>My Activities</Link>
+        </div>
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,6 +23,8 @@ export default function App(){
         <Route path="/saved" element={<Saved />} />
       </Routes>
     </Router>
+    
+    
   )
 }
 

@@ -1,19 +1,19 @@
 import React, { useContext } from "react"
-import {Context} from "../ActivityContext"
-import axios from "axios"
+import {ActivityContext} from "../ActivityContext"
 
 
 export default function Search(props){
 
-    const {activities, getActivity } = useContext(Context)
+    const {activities, getActivity, handleSaveActivity } = useContext(ActivityContext)
     
     return(
         <div>
-            <button 
-                className="form--btn"
-                onClick={getActivity}
-                > Get Activity
-            </button>
+
+            <button onClick={getActivity}> Get Activity</button>
+            <h1>Activity:{activities.activity}</h1>
+            <h2>Price:{activities.price === 0 ? "free" : activities.price}</h2>
+            <h2>{activities.link}</h2>
+            <button onClick={()=>handleSaveActivity()}>Add to My Saved Activities</button>
 
         </div>
     )

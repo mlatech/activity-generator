@@ -1,20 +1,35 @@
 import React from "react"
 import axios from "axios"
-import { createContext } from "react"
 
- export const Context = React.createContext()
 
-export default function ActivityContext(props){
+ export const ActivityContext = React.createContext()
+
+export default function ActivityProvider(props){
     //created state for activities
-    const [activities, setActivities] = React.useState([])
-    console.log(activities )
-function getActivity(){
+    const [activities, setActivities] = React.useState({})
+    const [savedActivities, setSavedActivities] = React.useState([])
    
+    function handleSaveActivity(){
+         console.log(activities)
+        setSavedActivities(activitiesArray =>([
+            ...activitiesArray,
+            // activity: activities.activity,
+            // accessibility: activities.accessibility,
+            // key: activities.key, 
+            // link: activities.link,
+            // participants: activities.participants,
+            // price: activities.price,
+            // type: activities.type
+            activities
+        ]))
+        alert(`Activity was added to "SAVED ACTIVITIES`)
+        console.log(savedActivities)
+    }
+
+function getActivity(){
         axios.get("https://www.boredapi.com/api/activity")
         .then(res => setActivities(res.data))
         .catch(err => console.log(err))
-        
-       //onclick the activity will change
 }
 React.useEffect(()=> {
     getActivity()
@@ -23,9 +38,9 @@ React.useEffect(()=> {
     
        
     return(
-        <Context.Provider value={{activities, getActivity}}>
+        <ActivityContext.Provider value={{activities, getActivity, handleSaveActivity, savedActivities, setSavedActivities, setActivities}}>
             {props.children}
-        </Context.Provider>
+        </ActivityContext.Provider>
 
     )
 }
