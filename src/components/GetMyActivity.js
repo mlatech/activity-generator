@@ -1,14 +1,12 @@
-import React, { useContext } from "react"
-import {ActivityContext} from "../ActivityContext"
+import React, { useContext } from "react";
+import { ActivityContext } from "../ActivityContext";
+import "./GetMyActivity.css"; // Import the CSS file for styling
 
+export default function GetMyActivity(props) {
+  const { activities, getActivity, handleSaveActivity } = useContext(ActivityContext);
 
-export default function GetMyActivity(props){
-
-   
-        const { activities, getActivity, handleSaveActivity } = useContext(ActivityContext)
-
-    return (
-    <div className="horoscope-container">
+  return (
+    <div className="getmyactivity-container">
       <button className="get-activity-button" onClick={getActivity}>
         Get Activity
       </button>
