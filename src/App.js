@@ -2,13 +2,14 @@ import React from "react"
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home'
 import GetMyActivity from './components/GetMyActivity'
-import Saved from './components/Saved'
+import SavedLogic from './components/SavedLogic'
+
 
 
 
 export default function App(){
   return(
- 
+
     <Router>
       <div>
         <div>
@@ -20,7 +21,7 @@ export default function App(){
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/getmyactivity" element={<GetMyActivity />} />
-        <Route path="/saved" element={<Saved />} />
+        <Route path="/saved" element={<SavedLogic />} />
       </Routes>
     </Router>
     
