@@ -1,6 +1,6 @@
 import React from "react"
 import {useContext} from "react"
-import Search from "./Search"
+import GetMyActivity from "./GetMyActivity"
 import { ActivityContext } from "../ActivityContext"
 
 
@@ -10,7 +10,7 @@ export default function Activities(){
         <div>   
             {activities.map((activity, _id)=>{
                 return (
-                    <Search 
+                    <GetMyActivity 
                     key = {activity._id}
                     id = {activity._id}
                 />

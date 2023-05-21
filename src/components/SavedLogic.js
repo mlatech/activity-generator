@@ -1,22 +1,14 @@
-import React, {useContext} from "react"
-import { ActivityContext } from "../ActivityContext"
-import Saved from "./Saved"
+import React, { useContext } from "react";
+import { ActivityContext } from "../ActivityContext";
+import Saved from "./Saved";
 
-
-export default function SavedLogic(){
-    const { savedActivities } = React.useContext(ActivityContext)
-    
-    return(
-        <div>
-            <ul>
-                {savedActivities.map((activity, index) => {
-                    return(
-                        <Saved key={index} activity={activity} />
-                        )
-                        }
-                    )
-                }
-            </ul>
-        </div>
-    )
+export default function SavedLogic(props) {
+  const { savedActivities } = useContext(ActivityContext);
+console.log(savedActivities)
+  return (
+    <div>
+      {savedActivities.map(savedActivity=> <Saved {...savedActivity} key={savedActivity._id}/>)}
+    </div>
+  );
 }
+
